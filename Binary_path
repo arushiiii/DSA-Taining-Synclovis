@@ -7,7 +7,7 @@ class TreeNode {
     TreeNode(int x) { val = x; }
 }
 
-class Solution {
+class Main {
     int maxValue;
 
     public int maxPathSum(TreeNode root) {
@@ -32,7 +32,7 @@ class Solution {
         String[] nodeValues = input.split(" ");
         TreeNode root = createTree(nodeValues);
 
-        Solution solution = new Solution();
+        Main solution = new Main();
         int maxPathSum = solution.maxPathSum(root);
 
         System.out.println("Maximum Path Sum: " + maxPathSum);
@@ -53,7 +53,7 @@ class Solution {
         while (!queue.isEmpty() && i < nodeValues.length) {
             TreeNode current = queue.poll();
 
-            if (!nodeValues[i].equals("null")) {
+            if (i < nodeValues.length && !nodeValues[i].equals("null")) {
                 current.left = new TreeNode(Integer.parseInt(nodeValues[i]));
                 queue.add(current.left);
             }
